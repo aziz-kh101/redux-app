@@ -1,0 +1,11 @@
+from {
+  padding: 10px;
+}
+
+form > * {
+  margin-left: 10px;
+}
+
+form:last-child {
+  margin-left: 0px;
+}
