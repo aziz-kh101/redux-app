@@ -13,3 +13,7 @@ export const _deleteProduct = (id) => {
 export const _addProduct = (product) => {
   return axios.post(`${url}/`, product).then((res) => res.data);
 };
+
+export const _editProduct = (id, product) => {
+  return axios.put(`${url}/${id}`, product).then((res) => res.data);
+};

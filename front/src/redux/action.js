@@ -3,6 +3,8 @@ const {
   MODIFY_PRODUCT,
   DELETE_PRODUCT,
   INISIAL_PRODUCTS,
+  PRODUCT_EDITING,
+  CANCEL_EDITING,
 } = require("./actionType");
 
 const inisialProducts = (products) => {
@@ -23,11 +25,11 @@ const addProduct = (product) => {
   };
 };
 
-const modifyProduct = (id, product) => {
+const modifyProduct = (index, product) => {
   return {
     type: MODIFY_PRODUCT,
     payload: {
-      id,
+      index,
       product,
     },
   };
@@ -42,4 +44,28 @@ const deleteProduct = (id) => {
   };
 };
 
-export { addProduct, modifyProduct, deleteProduct, inisialProducts };
+const editProduct = (product, index) => {
+  return {
+    type: PRODUCT_EDITING,
+    payload: {
+      product,
+      index,
+    },
+  };
+};
+
+const cancelEditing = (editing) => {
+  return {
+    type: CANCEL_EDITING,
+    payload: editing,
+  };
+};
+
+export {
+  addProduct,
+  modifyProduct,
+  deleteProduct,
+  inisialProducts,
+  editProduct,
+  cancelEditing,
+};

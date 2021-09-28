@@ -53,12 +53,12 @@ router.post("/", (req, res) => {
 router.put("/:id", (req, res) => {
   const product = req.body;
   const { id } = req.params;
+  const index = listProducts.findIndex((value) => value.id === parseInt(id));
   setTimeout(() => {
-    const index = listProducts.findIndex((value) => value.id === parseInt(id));
     if (index !== -1) {
-      product["id"] = listProducts[index].id;
-      listProducts[index] = product;
-      res.json(product);
+      let p = { id: parseInt(id), ...product };
+      listProducts[index] = p;
+      res.json(p);
     } else {
       res.json({ error: "Undefined Product" });
     }
